@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
-<title>Spring Framework Overview</title>
+<title>Spring框架概述</title>
 <style>
 @import 'css/spring.css';
 
@@ -158,18 +158,18 @@ $(globalSwitch);
 </head>
 <body id="overview" class="book toc2 toc-left">
 <div id="header">
-<h1>Spring Framework Overview</h1>
+<h1>Spring框架概述</h1>
 <div class="details">
-<span id="revnumber">version 5.2.5.RELEASE</span>
+<span id="revnumber">版本 5.2.5.RELEASE</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#overview-spring">1. What We Mean by "Spring"</a></li>
-<li><a href="#overview-history">2. History of Spring and the Spring Framework</a></li>
-<li><a href="#overview-philosophy">3. Design Philosophy</a></li>
-<li><a href="#overview-feedback">4. Feedback and Contributions</a></li>
-<li><a href="#overview-getting-started">5. Getting Started</a></li>
+<li><a href="#overview-spring">1. "Spring"是什么</a></li>
+<li><a href="#overview-history">2. Spring和Spring框架的历史</a></li>
+<li><a href="#overview-philosophy">3. 设计理念</a></li>
+<li><a href="#overview-feedback">4. 反馈和贡献</a></li>
+<li><a href="#overview-getting-started">5. 入门指南</a></li>
 </ul>
 </div>
 </div>
@@ -177,65 +177,38 @@ $(globalSwitch);
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Spring makes it easy to create Java enterprise applications. It provides everything you
-need to embrace the Java language in an enterprise environment, with support for Groovy
-and Kotlin as alternative languages on the JVM, and with the flexibility to create many
-kinds of architectures depending on an application&#8217;s needs. As of Spring Framework 5.1,
-Spring requires JDK 8+ (Java SE 8+) and provides out-of-the-box support for JDK 11 LTS.
-Java SE 8 update 60 is suggested as the minimum patch release for Java 8, but it is
-generally recommended to use a recent patch release.</p>
+<p>Spring使创建Java企业应用变得更加容易。它提供了在企业环境中采用Java语言所需要的一切，并支持Groovy和Kotlin作为JVM上的替代语言，还可以根据应用程序的需求灵活地创建多种体系架构。自Spring框架5.1起，Spring需要JDK 8+（Java SE 8+），并为JDK 11 LTS提供开箱即用的支持。建议将Java SE 8u60版本作为Java 8的最低修补版本，但通常更推荐使用最新的修补版本。</p>
 </div>
 <div class="paragraph">
-<p>Spring supports a wide range of application scenarios. In a large enterprise, applications
-often exist for a long time and have to run on a JDK and application server whose upgrade
-cycle is beyond developer control. Others may run as a single jar with the server embedded,
-possibly in a cloud environment. Yet others may be standalone applications (such as batch
-or integration workloads) that do not need a server.</p>
+<p>Spring支持广泛的应用场景。在大型企业中，应用程序通常会存在很长时间，并且必须在升级周期超出开发人员控制的JDK和应用程序服务器上运行。其他的应用程序可能会以内置服务器的单独jar包来运行，可能还会运行在云环境上。还有一些其他的应用程序可能是不需要服务器的独立应用（就像批处理程序或者integration workloads）</p>
 </div>
 <div class="paragraph">
-<p>Spring is open source. It has a large and active community that provides continuous feedback
-based on a diverse range of real-world use cases. This has helped Spring to successfully
-evolve over a very long time.</p>
+<p>Spring是开源的。它拥有庞大且活跃的社区，能够基于各种真实用例提供持续的反馈。这有助于Spring成功发展非常长的时间</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview-spring"><a class="anchor" href="#overview-spring"></a>1. What We Mean by "Spring"</h2>
+<h2 id="overview-spring"><a class="anchor" href="#overview-spring"></a>1. 我们所说的“Spring”</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The term "Spring" means different things in different contexts. It can be used to refer to
-the Spring Framework project itself, which is where it all started. Over time, other Spring
-projects have been built on top of the Spring Framework. Most often, when people say
-"Spring", they mean the entire family of projects. This reference documentation focuses on
-the foundation: the Spring Framework itself.</p>
+<p>在不同的语境中“Spring”意指不同的东西。它可以用来指代Spring框架项目本身，一切都从这里开始。随着时间的推移，其他Spring项目已经建立在Spring框架之上。通常，当人们谈及“Spring”时，他们意思是整个项目系列。而本参考文档重点关注基础：Spring框架本身。</p>
 </div>
 <div class="paragraph">
-<p>The Spring Framework is divided into modules. Applications can choose which modules they need.
-At the heart are the modules of the core container, including a configuration model and a
-dependency injection mechanism. Beyond that, the Spring Framework provides foundational
-support for different application architectures, including messaging, transactional data and
-persistence, and web. It also includes the Servlet-based Spring MVC web framework and, in
-parallel, the Spring WebFlux reactive web framework.</p>
+<p>Spring框架分成多个模块。应用程序可以选择所需的模块。基本容器模块是核心，它包括配置模型和依赖注入机制。除此之外，Spring框架还为不同的应用程序架构提供了基础的支持，包括了消息传递，事务性数据，持久性以及web。它还包括基于Servlet的Spring MVC web框架以及并行的Spring WebFlux 这种响应式的web框架。</p>
 </div>
 <div class="paragraph">
-<p>A note about modules: Spring&#8217;s framework jars allow for deployment to JDK 9&#8217;s module path
-("Jigsaw"). For use in Jigsaw-enabled applications, the Spring Framework 5 jars come with
-"Automatic-Module-Name" manifest entries which define stable language-level module names
-("spring.core", "spring.context" etc) independent from jar artifact names (the jars follow
-the same naming pattern with "-" instead of ".", e.g. "spring-core" and "spring-context").
-Of course, Spring&#8217;s framework jars keep working fine on the classpath on both JDK 8 and 9+.</p>
+<p>关于模块的一个说明：Spring的框架jar包允许部署到JDK 9的模块路径（“Jigsaw”）。为了在启用了Jigsaw的应用程序中使用，Spring框架5 jar包附带了“自动模块命名”manifest entries，它定义了稳定的langeuage-level模块名称（“spring.core”，“spring.context”等），这于jar包工件名称无关（jar包名称遵循相同的命名模式，使用“-”而不是“.”，例如“spring-core”和“”spring-context）。当然了，Spring的框架jar包在JDK 8 和 9+ 的classpath中能够保持正常工作。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview-history"><a class="anchor" href="#overview-history"></a>2. History of Spring and the Spring Framework</h2>
+<h2 id="overview-history"><a class="anchor" href="#overview-history"></a>2. Spring和Spring框架的历史</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Spring came into being in 2003 as a response to the complexity of the early
-<a href="https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition">J2EE</a> specifications.
-While some consider Java EE and Spring to be in competition, Spring is, in fact, complementary
-to Java EE. The Spring programming model does not embrace the Java EE platform specification;
-rather, it integrates with carefully selected individual specifications from the EE umbrella:</p>
+<p>
+为了应对早期
+<a href="https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition">J2EE</a>
+规范的复杂性，Spring于2003年应运而生。一些人认为Java EE和Spring是竞争关系，但事实上Spring是JavaEE的补充。Spring编程模型并没有包含Java EE的平台规范，反而集成了一些从EE中精心挑选的个别规范：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -261,15 +234,13 @@ rather, it integrates with carefully selected individual specifications from the
 <p>JMS (<a href="https://jcp.org/en/jsr/detail?id=914">JSR 914</a>)</p>
 </li>
 <li>
-<p>as well as JTA/JCA setups for transaction coordination, if necessary.</p>
+<p>以及必要时用于事务协调的JTA / JCA设置</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The Spring Framework also supports the Dependency Injection
-(<a href="https://www.jcp.org/en/jsr/detail?id=330">JSR 330</a>) and Common Annotations
-(<a href="https://jcp.org/en/jsr/detail?id=250">JSR 250</a>) specifications, which application developers
-may choose to use instead of the Spring-specific mechanisms provided by the Spring Framework.</p>
+<p>
+Spring框架也支持依赖注入(<a href="https://www.jcp.org/en/jsr/detail?id=330">JSR 330</a>)和常规注解规范(<a href="https://jcp.org/en/jsr/detail?id=250">JSR 250</a>)，这让应用程序开发者可以对这些规范进行选择而使用，而不是Spring框架提供的特定于Spring的机制</p>
 </div>
 <div class="paragraph">
 <p>As of Spring Framework 5.0, Spring requires the Java EE 7 level (e.g. Servlet 3.1+, JPA 2.1+)
@@ -295,7 +266,7 @@ the complete list of Spring projects.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview-philosophy"><a class="anchor" href="#overview-philosophy"></a>3. Design Philosophy</h2>
+<h2 id="overview-philosophy"><a class="anchor" href="#overview-philosophy"></a>3. 设计理念</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>When you learn about a framework, it’s important to know not only what it does but what
@@ -334,7 +305,7 @@ clean code structure with  no circular dependencies between packages.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview-feedback"><a class="anchor" href="#overview-feedback"></a>4. Feedback and Contributions</h2>
+<h2 id="overview-feedback"><a class="anchor" href="#overview-feedback"></a>4. 反馈和贡献</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For how-to questions or diagnosing or debugging issues, we suggest using StackOverflow,
@@ -356,7 +327,7 @@ top-level project page.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview-getting-started"><a class="anchor" href="#overview-getting-started"></a>5. Getting Started</h2>
+<h2 id="overview-getting-started"><a class="anchor" href="#overview-getting-started"></a>5. 入门指南</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you are just getting started with Spring, you may want to begin using the Spring
@@ -379,8 +350,8 @@ you might want to consider when solving a particular problem.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 5.2.5.RELEASE<br>
-Last updated 2020-03-24 11:23:46 UTC
+版本 5.2.5.RELEASE<br>
+最后更新于 2020-03-24 11:23:46 UTC
 </div>
 </div>
 <script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>

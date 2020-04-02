@@ -23,7 +23,7 @@ if (toctitle != null) {
         } else {
           link.setAttribute("href", "index.html");
         }
-        link.innerHTML = "<span><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span> Back to index";
+        link.innerHTML = "<span><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span> 返回首页";
         var block = document.createElement("div");
         block.setAttribute('class', 'back-action');
         block.appendChild(link);
