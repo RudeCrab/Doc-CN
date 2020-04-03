@@ -240,28 +240,17 @@ $(globalSwitch);
 </div>
 <div class="paragraph">
 <p>
-Spring框架也支持依赖注入(<a href="https://www.jcp.org/en/jsr/detail?id=330">JSR 330</a>)和常规注解规范(<a href="https://jcp.org/en/jsr/detail?id=250">JSR 250</a>)，这让应用程序开发者可以对这些规范进行选择而使用，而不是Spring框架提供的特定于Spring的机制</p>
+Spring框架也支持依赖注入(<a href="https://www.jcp.org/en/jsr/detail?id=330">JSR 330</a>)和常规注解(<a href="https://jcp.org/en/jsr/detail?id=250">JSR 250</a>)规范，这让应用程序开发者可以对这些规范进行选择而使用，而不是Spring框架提供的特定于Spring的机制</p>
 </div>
 <div class="paragraph">
-<p>As of Spring Framework 5.0, Spring requires the Java EE 7 level (e.g. Servlet 3.1+, JPA 2.1+)
-as a minimum - while at the same time providing out-of-the-box integration with newer APIs
-at the Java EE 8 level (e.g. Servlet 4.0, JSON Binding API) when encountered at runtime.
-This keeps Spring fully compatible with e.g. Tomcat 8 and 9, WebSphere 9, and JBoss EAP 7.</p>
+<p>自Spring框架5.0起，Spring将Java EE 7（如Servlet 3.1+，JPA 2.1+）作为最低要求，同时在程序运行时对Java 8中较新的API（如Servlet 4.0，JSON Binding API）提供开箱即用的集成。这让Spring能够和Tomcat 8 和 9，WebSphere 9,和JBoss EAP 7完全兼容。</p>
 </div>
 <div class="paragraph">
-<p>Over time, the role of Java EE in application development has evolved. In the early days of
-Java EE and Spring, applications were created to be deployed to an application server.
-Today, with the help of Spring Boot, applications are created in a devops- and
-cloud-friendly way, with the Servlet container embedded and trivial to change.
-As of Spring Framework 5, a WebFlux application does not even use the Servlet API directly
-and can run on servers (such as Netty) that are not Servlet containers.</p>
+<p>随着时间的推移，Java EE在应用程序开发中的作用已经演变。在Java EE和Spring早期，创建了应用程序以部署到应用程序服务器上。现在，有了Spring Boot的帮助，应用程序以一种对DevOps和云都友好的方式创建，还内置了Servlet容器并对其进行细微的改变，自Spring框架5起，WebFlux应用程序甚至不会直接使用Servlet API并且可以在非Servlet容器的服务器（如Netty）上运行。</p>
 </div>
 <div class="paragraph">
-<p>Spring continues to innovate and to evolve. Beyond the Spring Framework, there are other
-projects, such as Spring Boot, Spring Security, Spring Data, Spring Cloud, Spring Batch,
-among others. It’s important to remember that each project has its own source code repository,
-issue tracker, and release cadence. See <a href="https://spring.io/projects">spring.io/projects</a> for
-the complete list of Spring projects.</p>
+<p>Spring持续在革新和演进。除了Spring框架（Spring Framework）之外，还有很多其他的项目，比如Spring Boot, Spring Security, Spring Data, Spring Cloud, Spring Batch等。请务必记住，每个项目都拥有自己的源代码仓库、问题追踪和发布节奏。点击<a href="https://spring.io/projects">spring.io/projects</a>查看完整的Spring项目列表。
+</p>
 </div>
 </div>
 </div>
@@ -269,8 +258,7 @@ the complete list of Spring projects.</p>
 <h2 id="overview-philosophy"><a class="anchor" href="#overview-philosophy"></a>3. 设计理念</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you learn about a framework, it’s important to know not only what it does but what
-principles it follows. Here are the guiding principles of the Spring Framework:</p>
+<p>当你学习框架时，不仅要知道它的作用还要知道它遵循的原则，这很重要。这里有Spring框架的指导原则：</p>
 </div>
 <div class="ulist">
 <ul>
