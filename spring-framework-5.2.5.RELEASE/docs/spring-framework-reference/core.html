@@ -795,17 +795,10 @@ $(globalSwitch);
 <p>参考文档的这一部分涵盖了所有构成Spring框架所必需的技术。</p>
 </div>
 <div class="paragraph">
-<p>Foremost amongst these is the Spring Framework&#8217;s Inversion of Control (IoC) container.
-A thorough treatment of the Spring Framework&#8217;s IoC container is closely followed by
-comprehensive coverage of Spring&#8217;s Aspect-Oriented Programming (AOP) technologies.
-The Spring Framework has its own AOP framework, which is conceptually easy to
-understand and which successfully addresses the 80% sweet spot of AOP requirements
-in Java enterprise programming.</p>
+<p>其中最重要的就是Spring框架的控制反转（Ioc）容器。介绍完Spring框架的IoC容器后就会全面介绍Spring的面向切面编程（AOP）技术。Spring框架有自己的AOP框架，它在概念上易于理解，并成功解决了80%Java企业编程中的AOP需求。</p>
 </div>
 <div class="paragraph">
-<p>Coverage of Spring&#8217;s integration with AspectJ (currently the richest&#8201;&#8212;&#8201;in terms of
-features&#8201;&#8212;&#8201;and certainly most mature AOP implementation in the Java enterprise space)
-is also provided.</p>
+<p>还会介绍Spring和AspectJ的集成（就功能而言目前最丰富的，当然也是Java企业领域中最成熟的AOP实现）。</p>
 </div>
 </div>
 </div>
@@ -813,65 +806,46 @@ is also provided.</p>
 <h2 id="beans"><a class="anchor" href="#beans"></a>1. 控制反转（IoC）容器</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter covers Spring&#8217;s Inversion of Control (IoC) container.</p>
+<p>本章介绍Spring的控制反转（IoC）容器。</p>
 </div>
 <div class="sect2">
-<h3 id="beans-introduction"><a class="anchor" href="#beans-introduction"></a>1.1. Introduction to the Spring IoC Container and Beans</h3>
+<h3 id="beans-introduction"><a class="anchor" href="#beans-introduction"></a>1.1. 介绍Spring IoC容器和Beans</h3>
 <div class="paragraph">
-<p>This chapter covers the Spring Framework implementation of the Inversion of Control
-(IoC) principle. IoC is also known as dependency injection (DI). It is a process whereby
-objects define their dependencies (that is, the other objects they work with) only through
-constructor arguments, arguments to a factory method, or properties that are set on the
-object instance after it is constructed or returned from a factory method. The container
-then injects those dependencies when it creates the bean. This process is fundamentally
-the inverse (hence the name, Inversion of Control) of the bean itself
-controlling the instantiation or location of its dependencies by using direct
-construction of classes or a mechanism such as the Service Locator pattern.</p>
+<p>这一章介绍Spring框架实现IoC容器的原理。IoC也被称作依赖注入（DI）。在此过程中，对象只需通过构造方法参数，或工厂方法参数，或者对象创建后在对象实例上设置的属性来定义其自身的依赖项（与它们一起使用的对象），接着在容器创建bean时注入那些依赖项。此过程从根本上讲是，通过直接使用类的构造方法或者服务定位器模式（Service Locator pattern）这种机制，来反转bean自身对“依赖项的实例化和资源定位（Location）”的控制（控制反转由此得名）。	</p>
 </div>
 <div class="paragraph">
-<p>The <code>org.springframework.beans</code> and <code>org.springframework.context</code> packages are the basis
-for Spring Framework&#8217;s IoC container. The
-<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/beans/factory/BeanFactory.html"><code>BeanFactory</code></a>
-interface provides an advanced configuration mechanism capable of managing any type of
-object.
-<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/ApplicationContext.html"><code>ApplicationContext</code></a>
-is a sub-interface of <code>BeanFactory</code>. It adds:</p>
+<p>
+<code>org.springframework.beans</code>包和<code>org.springframework.context</code>包是Spring框架IoC容器的基础。<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/beans/factory/BeanFactory.html"><code>BeanFactory</code></a>接口提供了一种先进的配置机制能够管理任何类型的对象。<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/ApplicationContext.html"><code>ApplicationContext</code></a>是<code>BeanFactory</code>的子接口，它添加了：
+</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Easier integration with Spring&#8217;s AOP features</p>
+<p>更轻松地与Spring的AOP功能集成</p>
 </li>
 <li>
-<p>Message resource handling (for use in internationalization)</p>
+<p>消息资源处理（用于国际化）</p>
 </li>
 <li>
-<p>Event publication</p>
+<p>事件发布</p>
 </li>
 <li>
-<p>Application-layer specific contexts such as the <code>WebApplicationContext</code>
-for use in web applications.</p>
+<p>
+应用层特定上下文，例如web应用程序中使用的<code>WebApplicationContext</code>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In short, the <code>BeanFactory</code> provides the configuration framework and basic
-functionality, and the <code>ApplicationContext</code> adds more enterprise-specific functionality.
-The <code>ApplicationContext</code> is a complete superset of the <code>BeanFactory</code> and is used
-exclusively in this chapter in descriptions of Spring&#8217;s IoC container. For more
-information on using the <code>BeanFactory</code> instead of the <code>ApplicationContext,</code> see
-<a href="#beans-beanfactory">The <code>BeanFactory</code></a>.</p>
+<p>
+简而言之，<code>BeanFactory</code> 提供了配置框架和基础功能，<code>ApplicationContext</code>则增加了更多特定于企业的功能。<code>ApplicationContext</code>是 <code>BeanFactory</code> 的完整超集，在这一章里专门用于Spring IoC容器的说明。关于更多的<code>BeanFactory</code>而不是<code>ApplicationContext</code>的详细信息，点击<a href="#beans-beanfactory"><code>BeanFactory</code></a>查看。
+</p>
 </div>
 <div class="paragraph">
-<p>In Spring, the objects that form the backbone of your application and that are managed
-by the Spring IoC container are called beans. A bean is an object that is
-instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a
-bean is simply one of many objects in your application. Beans, and the dependencies
-among them, are reflected in the configuration metadata used by a container.</p>
+<p>在Spring中，构成应用程序的主干并由Spring IoC容器管理的对象称为bean。bean是由Spring IoC容器实例化、组装和以其他方式管理的对象。否则，bean和应用程序中众多其他对象没啥不同。bean及其之间的依赖项反映在容器使用的配置元数据中。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. Container Overview</h3>
+<h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. 容器概述</h3>
 <div class="paragraph">
 <p>The <code>org.springframework.context.ApplicationContext</code> interface represents the Spring IoC
 container and is responsible for instantiating, configuring, and assembling the
