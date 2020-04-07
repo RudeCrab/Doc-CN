@@ -847,33 +847,16 @@ $(globalSwitch);
 <div class="sect2">
 <h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. 容器概述</h3>
 <div class="paragraph">
-<p>The <code>org.springframework.context.ApplicationContext</code> interface represents the Spring IoC
-container and is responsible for instantiating, configuring, and assembling the
-beans. The container gets its instructions on what objects to
-instantiate, configure, and assemble by reading configuration metadata. The
-configuration metadata is represented in XML, Java annotations, or Java code. It lets
-you express the objects that compose your application and the rich interdependencies
-between those objects.</p>
+<p><code>org.springframework.context.ApplicationContext</code> 接口意味着Spring IoC容器，负责实例化、配置和组装bean。容器通过读取配置元数据，来获取有关要实例化、配置和组装哪些对象的指令。配置元数据以XML、Java注解或Java代码来表示，这种方式能够让你描述组成应用程序的对象以及这些对象之间丰富的依赖关系。</p>
 </div>
 <div class="paragraph">
-<p>Several implementations of the <code>ApplicationContext</code> interface are supplied
-with Spring. In stand-alone applications, it is common to create an
-instance of
-<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html"><code>ClassPathXmlApplicationContext</code></a>
-or <a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html"><code>FileSystemXmlApplicationContext</code></a>.
-While XML has been the traditional format for defining configuration metadata, you can
-instruct the container to use Java annotations or code as the metadata format by
-providing a small amount of XML configuration to declaratively enable support for these
-additional metadata formats.</p>
+<p>
+Spring提供了<code>ApplicationContext</code>接口的几个实现。在独立应用程序（stand-alone applications）中，一般创建<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html"><code>ClassPathXmlApplicationContext</code></a>或
+<a href="https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html"><code>FileSystemXmlApplicationContext</code></a>的实例。尽管XML是定义配置元数据的传统格式，但你也可以使用少部分XML配置，来声明式启用对这些额外元数据格式的支持，从而指示容器使用Java注解或代码作为元数据格式。</p>
 </div>
 <div class="paragraph">
-<p>In most application scenarios, explicit user code is not required to instantiate one or
-more instances of a Spring IoC container. For example, in a web application scenario, a
-simple eight (or so) lines of boilerplate web descriptor XML in the <code>web.xml</code> file
-of the application typically suffices (see <a href="#context-create">Convenient ApplicationContext Instantiation for Web Applications</a>). If you use the
-<a href="https://spring.io/tools">Spring Tools for Eclipse</a> (an Eclipse-powered development
-environment), you can easily create this boilerplate configuration with a few mouse clicks or
-keystrokes.</p>
+<p>
+在大多数应用场景中，不需要显式的用户代码方式来实例化一个或多个Spring IoC容器实例。比如，在web应用场景中，应用程序的<code>web.xml</code>文件中只需简单（约）八行的web描述性XML语句就够了（请查看<a href="#context-create">Web应用程序的便捷ApplicationContext实例化</a>），如果你使用<a href="https://spring.io/tools">Eclipse的Spring工具</a>，你只需要点几下鼠标或键盘就可以非常容易地创建这个样板配置。</p>
 </div>
 <div class="paragraph">
 <p>The following diagram shows a high-level view of how Spring works. Your application classes
@@ -13734,7 +13717,7 @@ regardless of the actual context type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-create"><a class="anchor" href="#context-create"></a>1.15.4. Convenient ApplicationContext Instantiation for Web Applications</h4>
+<h4 id="context-create"><a class="anchor" href="#context-create"></a>1.15.4. Web应用程序的便捷ApplicationContext实例化</h4>
 <div class="paragraph">
 <p>You can create <code>ApplicationContext</code> instances declaratively by using, for example, a
 <code>ContextLoader</code>. Of course, you can also create <code>ApplicationContext</code> instances
