@@ -859,29 +859,23 @@ Spring提供了<code>ApplicationContext</code>接口的几个实现。在独立�
 在大多数应用场景中，不需要显式的用户代码方式来实例化一个或多个Spring IoC容器实例。比如，在web应用场景中，应用程序的<code>web.xml</code>文件中只需简单（约）八行的web描述性XML语句就够了（请查看<a href="#context-create">Web应用程序的便捷ApplicationContext实例化</a>），如果你使用<a href="https://spring.io/tools">Eclipse的Spring工具</a>，你只需要点几下鼠标或键盘就可以非常容易地创建这个样板配置。</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a high-level view of how Spring works. Your application classes
-are combined with configuration metadata so that, after the <code>ApplicationContext</code> is
-created and initialized, you have a fully configured and executable system or
-application.</p>
+<p>
+下图显示了Spring的工作原理的高级视图。应用程序类和配置元数据相互结合，以便在<code>ApplicationContext</code>接口创建和初始化后，让您拥有一个配置完整且可运行的系统/应用程序。
+</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/container-magic.png" alt="container magic">
 </div>
-<div class="title">Figure 1. The Spring IoC container</div>
+<div class="title">图 1. Spring IoC容器</div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-metadata"><a class="anchor" href="#beans-factory-metadata"></a>1.2.1. Configuration Metadata</h4>
+<h4 id="beans-factory-metadata"><a class="anchor" href="#beans-factory-metadata"></a>1.2.1. 配置元数据</h4>
 <div class="paragraph">
-<p>As the preceding diagram shows, the Spring IoC container consumes a form of
-configuration metadata. This configuration metadata represents how you, as an
-application developer, tell the Spring container to instantiate, configure, and assemble
-the objects in your application.</p>
+<p>如上图所示，Spring IoC容器使用某种形式的配置元数据。这个配置元数据代表您作为一个应用程序开发者，告诉Spring容器如何实例化、配置和组装应用中的对象。</p>
 </div>
 <div class="paragraph">
-<p>Configuration metadata is traditionally supplied in a simple and intuitive XML format,
-which is what most of this chapter uses to convey key concepts and features of the
-Spring IoC container.</p>
+<p>配置元数据传统上以简单易懂的XML格式提供，本章大部分内容使用此方式来传达Spring IoC容器的关键概念和功能。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -890,32 +884,30 @@ Spring IoC container.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-XML-based metadata is not the only allowed form of configuration metadata.
-The Spring IoC container itself is totally decoupled from the format in which this
-configuration metadata is actually written. These days, many developers choose
-<a href="#beans-java">Java-based configuration</a> for their Spring applications.
+基于XML的元数据并不是配置元数据的唯一形式。Spring IoC容器自身与这些实际写入的元数据格式完全分离。如今，许多开发者选择<a href="#beans-java">基于Java配置</a>来开发Spring应用程序。
+<br/>
+<em>译者注：在Spring的术语中，把BeanFactory需要使用的对象注册和依赖绑定信息称为Configuration Metadata（配置元数据）</em>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For information about using other forms of metadata with the Spring container, see:</p>
+<p>
+有关其他形式元数据和Spring容器的一起使用的信息,请参阅：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#beans-annotation-config">Annotation-based configuration</a>: Spring 2.5 introduced
-support for annotation-based configuration metadata.</p>
+<p><a href="#beans-annotation-config">基于注解配置</a>：
+Spring 2.5 引入基于注解配置元数据的支持</p>
 </li>
 <li>
-<p><a href="#beans-java">Java-based configuration</a>: Starting with Spring 3.0, many features
-provided by the Spring JavaConfig project became part of the core Spring Framework.
-Thus, you can define beans external to your application classes by using Java rather
-than XML files. To use these new features, see the
+<p><a href="#beans-java">基于Java配置</a>：
+从Spring 3.0开始，Spring JavaConfig工程提供的许多功能成为核心Spring框架的一部分。因此，你可以通过使用Java代码而不是XML文件对你的应用程序定义bean。要使用这些新功能，可以参阅：
 <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html"><code>@Configuration</code></a>,
 <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html"><code>@Bean</code></a>,
 <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html"><code>@Import</code></a>,
-and <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html"><code>@DependsOn</code></a> annotations.</p>
+和 <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html"><code>@DependsOn</code></a> 注解。</p>
 </li>
 </ul>
 </div>
@@ -6213,7 +6205,7 @@ product of the <code>FactoryBean</code>, whereas invoking <code>getBean("&amp;my
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-annotation-config"><a class="anchor" href="#beans-annotation-config"></a>1.9. Annotation-based Container Configuration</h3>
+<h3 id="beans-annotation-config"><a class="anchor" href="#beans-annotation-config"></a>1.9. 基于注解的容器配置</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Are annotations better than XML for configuring Spring?</div>
@@ -9729,7 +9721,7 @@ features are not available, as the following table shows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-java"><a class="anchor" href="#beans-java"></a>1.12. Java-based Container Configuration</h3>
+<h3 id="beans-java"><a class="anchor" href="#beans-java"></a>1.12. 基于Java的容器配置</h3>
 <div class="paragraph">
 <p>This section covers how to use annotations in your Java code to configure the Spring
 container. It includes the following topics:</p>
