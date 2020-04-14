@@ -912,24 +912,24 @@ Spring 2.5 引入基于注解配置元数据的支持</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Spring configuration consists of at least one and typically more than one bean
-definition that the container must manage. XML-based configuration metadata configures these
-beans as <code>&lt;bean/&gt;</code> elements inside a top-level <code>&lt;beans/&gt;</code> element. Java
-configuration typically uses <code>@Bean</code>-annotated methods within a <code>@Configuration</code> class.</p>
+<p>
+	Spring配置由容器管理的至少一个（通常是多个）bean的定义组成。基于XML的配置元数据依照顶级元素<code>&lt;beans/&gt;</code>里的<code>&lt;bean/&gt;</code>元素来配置这些bean。
+	Java配置则通常在<code>@Configuration</code>类中使用<code>@Bean</code>注解的方法来配置这些bean。
+</p>
 </div>
 <div class="paragraph">
-<p>These bean definitions correspond to the actual objects that make up your application.
-Typically, you define service layer objects, data access objects (DAOs), presentation
-objects such as Struts <code>Action</code> instances, infrastructure objects such as Hibernate
-<code>SessionFactories</code>, JMS <code>Queues</code>, and so forth. Typically, one does not configure
-fine-grained domain objects in the container, because it is usually the responsibility
-of DAOs and business logic to create and load domain objects. However, you can use
-Spring&#8217;s integration with AspectJ to configure objects that have been created outside
-the control of an IoC container. See <a href="#aop-atconfigurable">Using AspectJ to
-dependency-inject domain objects with Spring</a>.</p>
+<p>
+	这些bean的定义对应构成应用程序的实际对象。通常，您定义service层对象、数据访问对象（DAO）、表示对象（如Struts <code>Action</code>实例）、
+	基础结构对象（如Hibernate <code>SessionFactories</code>, JMS <code>Queues</code>）等等，
+	而不会在容器中配置细颗粒度的领域对象（domain object），因为创建和加载领域对象这通常是DAO和业务逻辑的职责。
+	然而，你可以使用Spring和AspectJ的集成来配置IoC容器控制之外创建的对象。了解更多可查看：
+	<a href="#aop-atconfigurable">使用AspectJ和Spring来依赖注入领域对象</a>。
+</p>
 </div>
 <div class="paragraph">
-<p>The following example shows the basic structure of XML-based configuration metadata:</p>
+<p>
+	下面的示例展示了基于XML的配置元数据基本结构：
+</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -940,14 +940,14 @@ dependency-inject domain objects with Spring</a>.</p>
         https://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
 
     &lt;bean id="..." class="..."&gt; <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b>
-        &lt;!-- collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 该bean的协作对象和配置写在这 --&gt;
     &lt;/bean&gt;
 
     &lt;bean id="..." class="..."&gt;
-        &lt;!-- collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 该bean的协作对象和配置写在这 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions go here --&gt;
+    &lt;!-- 更多bean的定义写在这 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
@@ -956,19 +956,19 @@ dependency-inject domain objects with Spring</a>.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>id</code> attribute is a string that identifies the individual bean definition.</td>
+<td><code>id</code>属性是一个字符串，用来标记这个bean定义的独特性。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>class</code> attribute defines the type of the bean and uses the fully qualified
-classname.</td>
+<td>
+	<code>class</code>属性定义bean的类型并且要使用全路径类名。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The value of the <code>id</code> attribute refers to collaborating objects. The XML for
-referring to collaborating objects is not shown in this example. See
-<a href="#beans-dependencies">Dependencies</a> for more information.</p>
+<p>
+	<code>id</code>属性的值适用于协作对象。用于引用协作对象的XML没有在示例中展示。更多信息可查看
+<a href="#beans-dependencies">依赖项</a>。</p>
 </div>
 </div>
 <div class="sect3">
@@ -23577,14 +23577,14 @@ alone.</p>
 <div class="paragraph">
 <p>Spring ships with a small AspectJ aspect library, which is available stand-alone in your
 distribution as <code>spring-aspects.jar</code>. You need to add this to your classpath in order
-to use the aspects in it. <a href="#aop-atconfigurable">Using AspectJ to Dependency Inject Domain Objects with Spring</a> and <a href="#aop-ajlib-other">Other Spring aspects for AspectJ</a> discuss the
+to use the aspects in it. <a href="#aop-atconfigurable">使用AspectJ和Spring来依赖注入领域对象</a> and <a href="#aop-ajlib-other">Other Spring aspects for AspectJ</a> discuss the
 content of this library and how you can use it. <a href="#aop-aj-configure">Configuring AspectJ Aspects by Using Spring IoC</a> discusses how to
 dependency inject AspectJ aspects that are woven using the AspectJ compiler. Finally,
 <a href="#aop-aj-ltw">Load-time Weaving with AspectJ in the Spring Framework</a> provides an introduction to load-time weaving for Spring applications
 that use AspectJ.</p>
 </div>
 <div class="sect3">
-<h4 id="aop-atconfigurable"><a class="anchor" href="#aop-atconfigurable"></a>5.10.1. Using AspectJ to Dependency Inject Domain Objects with Spring</h4>
+<h4 id="aop-atconfigurable"><a class="anchor" href="#aop-atconfigurable"></a>5.10.1. 使用AspectJ和Spring来依赖注入领域对象</h4>
 <div class="paragraph">
 <p>The Spring container instantiates and configures beans defined in your application
 context. It is also possible to ask a bean factory to configure a pre-existing
