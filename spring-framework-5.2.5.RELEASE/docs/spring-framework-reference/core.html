@@ -972,12 +972,12 @@ Spring 2.5 引入基于注解配置元数据的支持</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-instantiation"><a class="anchor" href="#beans-factory-instantiation"></a>1.2.2. Instantiating a Container</h4>
+<h4 id="beans-factory-instantiation"><a class="anchor" href="#beans-factory-instantiation"></a>1.2.2. 实例化容器</h4>
 <div class="paragraph">
-<p>The location path or paths
-supplied to an <code>ApplicationContext</code> constructor are resource strings that let
-the container load configuration metadata from a variety of external resources, such
-as the local file system, the Java <code>CLASSPATH</code>, and so on.</p>
+<p>
+	提供给<code>ApplicationContext</code>构造函数的一个或多个位置路径是资源字符串，
+	这些资源字符串使容器可以从各种外部资源（例如本地文件系统，Java <code>CLASSPATH</code>等）加载配置元数据。
+</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -999,17 +999,19 @@ as the local file system, the Java <code>CLASSPATH</code>, and so on.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>After you learn about Spring&#8217;s IoC container, you may want to know more about Spring&#8217;s
-<code>Resource</code> abstraction (as described in <a href="#resources">Resources</a>), which provides a convenient
-mechanism for reading an InputStream from locations defined in a URI syntax. In particular,
-<code>Resource</code> paths are used to construct applications contexts, as described in <a href="#resources-app-ctx">Application Contexts and Resource Paths</a>.</p>
+<p>
+	了解了Spring的IoC容器后，你可能想了解更多关于Spring的<code>Resource</code>抽象（如<a href="#resources">Resources</a>所述），
+	它为从URI语法中定义的位置读取InpuStream提供了便捷的机制。
+	特别是<code>Resource</code>路径可以用来构建应用程序上下文，如<a href="#resources-app-ctx">应用程序上下文和资源路径</a>所述。</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following example shows the service layer objects <code>(services.xml)</code> configuration file:</p>
+<p>
+	以下示例演示了service层对象<code>(services.xml)</code>配置文件：
+	</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1024,16 +1026,16 @@ mechanism for reading an InputStream from locations defined in a URI syntax. In 
     &lt;bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl"&gt;
         &lt;property name="accountDao" ref="accountDao"/&gt;
         &lt;property name="itemDao" ref="itemDao"/&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 该bean额外的协作对象和配置写在这 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions for services go here --&gt;
+    &lt;!-- 更多关于service的bean定义写在这 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The following example shows the data access objects <code>daos.xml</code> file:</p>
+<p>以下示例演示了数据访问对象（DAO）<code>daos.xml</code> 文件:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1045,39 +1047,36 @@ mechanism for reading an InputStream from locations defined in a URI syntax. In 
 
     &lt;bean id="accountDao"
         class="org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao"&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 该bean额外的协作对象和配置写在这 --&gt;
     &lt;/bean&gt;
 
     &lt;bean id="itemDao" class="org.springframework.samples.jpetstore.dao.jpa.JpaItemDao"&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 该bean额外的协作对象和配置写在这 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions for data access objects go here --&gt;
+    &lt;!-- 更多关于数据访问对象（DAO）的bean定义写在这 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the preceding example, the service layer consists of the <code>PetStoreServiceImpl</code> class
-and two data access objects of the types <code>JpaAccountDao</code> and <code>JpaItemDao</code> (based
-on the JPA Object-Relational Mapping standard). The <code>property name</code> element refers to the
-name of the JavaBean property, and the <code>ref</code> element refers to the name of another bean
-definition. This linkage between <code>id</code> and <code>ref</code> elements expresses the dependency between
-collaborating objects. For details of configuring an object&#8217;s dependencies, see
-<a href="#beans-dependencies">Dependencies</a>.</p>
+<p>
+	在上面示例中，service层由<code>PetStoreServiceImpl</code>类和两个数据访问对象<code>JpaAccountDao</code>和<code>JpaItemDao</code>组成（基于JPA对象关系映射标准）。
+	<code>property name</code>元素引用了JavaBean属性的名称，<code>ref</code>元素引用了另一个bean定义的名称。
+	<code>id</code>和<code>ref</code>元素之间的连接表示了协作对象之间的依赖关系。关于配置对象依赖项更多细节可查阅：<a href="#beans-dependencies">依赖项</a>。
+</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-xml-import"><a class="anchor" href="#beans-factory-xml-import"></a>Composing XML-based Configuration Metadata</h5>
+<h5 id="beans-factory-xml-import"><a class="anchor" href="#beans-factory-xml-import"></a>编写基于XML的配置元数据</h5>
 <div class="paragraph">
-<p>It can be useful to have bean definitions span multiple XML files. Often, each individual
-XML configuration file represents a logical layer or module in your architecture.</p>
+<p>使bean定义跨越多个XML文件可能很有用。通常，每个单独的XML配置文件都代表架构中的逻辑层或模块。</p>
 </div>
 <div class="paragraph">
-<p>You can use the application context constructor to load bean definitions from all these
-XML fragments. This constructor takes multiple <code>Resource</code> locations, as was shown in the
-<a href="#beans-factory-instantiation">previous section</a>. Alternatively, use one or more
-occurrences of the <code>&lt;import/&gt;</code> element to load bean definitions from another file or
-files. The following example shows how to do so:</p>
+<p>
+	你可以使用应用程序上下文构造器来加载从所有这些XML片段中的bean定义。
+	这个构造器具有多个<code>Resource</code>位置，如<a href="#beans-factory-instantiation">上一节</a>所示。
+	或者，使用一个或多个<code>&lt;import/&gt;</code>元素来加载其他文件的bean定义。以下示例演示了如何去做：
+</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1092,15 +1091,12 @@ files. The following example shows how to do so:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In the preceding example, external bean definitions are loaded from three files:
-<code>services.xml</code>, <code>messageSource.xml</code>, and <code>themeSource.xml</code>. All location paths are
-relative to the definition file doing the importing, so <code>services.xml</code> must be in the
-same directory or classpath location as the file doing the importing, while
-<code>messageSource.xml</code> and <code>themeSource.xml</code> must be in a <code>resources</code> location below the
-location of the importing file. As you can see, a leading slash is ignored. However, given
-that these paths are relative, it is better form not to use the slash at all. The
-contents of the files being imported, including the top level <code>&lt;beans/&gt;</code> element, must
-be valid XML bean definitions, according to the Spring Schema.</p>
+<p>
+	在前一个示例中，外部bean定义从三个文件中加载：<code>services.xml</code>, <code>messageSource.xml</code>, <code>themeSource.xml</code>。
+	所有位置路径都相对于执行导入的定义文件，因此<code>services.xml</code>必须与执行导入的文件在同一个目录或classpath位置下，
+	<code>messageSource.xml</code>和<code>themeSource.xml</code>必须在导入文件位置之下的资源位置中。
+	如你所见，顶头的斜杠可以被忽略。由于这些路径是相对的，不用斜杠更好。根据Spring架构，导入的文件内容（包含顶级元素<code>&lt;beans/&gt;</code>）必须是有效的XML bean定义
+</p>
 </div>
 <div class="admonitionblock note">
 <table>
