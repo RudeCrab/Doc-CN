@@ -1106,12 +1106,12 @@ Spring 2.5 引入基于注解配置元数据的支持</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is possible, but not recommended, to reference files in parent directories using a
-relative "../" path. Doing so creates a dependency on a file that is outside the current
-application. In particular, this reference is not recommended for <code>classpath:</code> URLs (for
-example, <code>classpath:../services.xml</code>), where the runtime resolution process chooses the
-&#8220;nearest&#8221; classpath root and then looks into its parent directory. Classpath
-configuration changes may lead to the choice of a different, incorrect directory.</p>
+<p>
+	引用文件在父目录中使用相对路径 “../”这是可以的，但不建议这么做，这样做会在脱离于当前应用程序的文件上创建依赖项。
+	尤其不建议对于<code>calsspath</code>的引用：URLs（比如，<code>classpath:../services.xml</code>），
+	运行时解析进程会选择“最近”的classpath根目录，然后查看其父目录，
+	classpath配置的更改可能会导致选择其他错误的目录
+</p>
 </div>
 <div class="paragraph">
 <p>You can always use fully qualified resource locations instead of relative paths: for
