@@ -1114,12 +1114,11 @@ Spring 2.5 引入基于注解配置元数据的支持</p>
 </p>
 </div>
 <div class="paragraph">
-<p>You can always use fully qualified resource locations instead of relative paths: for
-example, <code>file:C:/config/services.xml</code> or <code>classpath:/config/services.xml</code>. However, be
-aware that you are coupling your application&#8217;s configuration to specific absolute
-locations. It is generally preferable to keep an indirection for such absolute
-locations&#8201;&#8212;&#8201;for example, through "${&#8230;&#8203;}" placeholders that are resolved against JVM
-system properties at runtime.</p>
+<p>
+	你可以一直使用全限定资源路径而不使用相对路径，比如<code>file:C:/config/services.xml</code>或者<code>classpath:/config/services.xml</code>。
+	但是请注意，你正在将你的应用程序配置与特定的绝对路径耦合，通常更好的做法是对此类绝对路径保持间接关系。
+	比如，通过在运行时针对JVM系统属性解析的"${&#8230;&#8203;}"占位符。
+</p>
 </div>
 </td>
 </tr>
