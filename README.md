@@ -7,5 +7,5 @@
 
 |         文档名称         |                           原文链接                           |                           翻译链接                           | 翻译进度 |
 | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------: |
-| Spring框架5.2.5-参考文档 | [Spring Framework Documentation](https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/) | [Spring框架参考文档](https://rudecrab.github.io/Doc-CN/spring-framework-5.2.5.RELEASE/docs/spring-framework-reference/) |    1%    |
+| Spring框架5.2.5-参考文档 | [Spring Framework Documentation](https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/) | [Spring框架参考文档](https://rudecrab.github.io/Doc-CN/spring-framework-5.2.5.RELEASE/docs/spring-framework-reference/) |   12%    |
 

@@ -1161,33 +1161,36 @@ Spring 2.5 引入基于注解配置元数据的支持</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This configuration style is largely equivalent to XML bean definitions and even
-supports Spring&#8217;s XML configuration namespaces. It also allows for importing XML
-bean definition files through an <code>importBeans</code> directive.</p>
+<p>
+	这个配置风格很大程度上等价于XML的bean定义，甚至支持Spring的XML配置命名空间。它还允许通过<code>importBeans</code>指令导入bean定义文件
+</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-client"><a class="anchor" href="#beans-factory-client"></a>1.2.3. Using the Container</h4>
+<h4 id="beans-factory-client"><a class="anchor" href="#beans-factory-client"></a>1.2.3. 使用容器</h4>
 <div class="paragraph">
-<p>The <code>ApplicationContext</code> is the interface for an advanced factory capable of maintaining
-a registry of different beans and their dependencies. By using the method <code>T getBean(String
-name, Class&lt;T&gt; requiredType)</code>, you can retrieve instances of your beans.</p>
+<p>
+	<code>ApplicationContext</code>是一个能够维护不同bean及其依赖关系的高级工厂接口。
+	使用<code>T getBean(String
+name, Class&lt;T&gt; requiredType)</code>方法，可以获取bean的实例
+</p>
 </div>
 <div class="paragraph">
-<p>The <code>ApplicationContext</code> lets you read bean definitions and access them, as the following
-example shows:</p>
+<p>
+	<code>ApplicationContext</code>可以让你读取bean的定义并访问它们，如下所示：
+</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// create and configure beans
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// 创建并配置bean
 ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
 
-// retrieve configured instance
+// 获取已配置好的实例
 PetStoreService service = context.getBean("petStore", PetStoreService.class);
 
-// use configured instance
+// 使用已配置好的实例
 List&lt;String&gt; userList = service.getUsernameList();</code></pre>
 </div>
 </div>
@@ -1196,13 +1199,13 @@ List&lt;String&gt; userList = service.getUsernameList();</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.springframework.beans.factory.getBean
 
-// create and configure beans
+// 创建并配置bean
 val context = ClassPathXmlApplicationContext("services.xml", "daos.xml")
 
-// retrieve configured instance
+// 获取已配置好的实例
 val service = context.getBean&lt;PetStoreService&gt;("petStore")
 
-// use configured instance
+// 使用已配置好的实例
 var userList = service.getUsernameList()</code></pre>
 </div>
 </div>
