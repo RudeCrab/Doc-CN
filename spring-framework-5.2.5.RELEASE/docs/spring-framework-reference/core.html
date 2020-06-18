@@ -1210,9 +1210,10 @@ var userList = service.getUsernameList()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>With Groovy configuration, bootstrapping looks very similar. It has a different context
-implementation class which is Groovy-aware (but also understands XML bean definitions).
-The following example shows Groovy configuration:</p>
+<p>
+使用Groovy配置时，代码看起来非常相识。它有不同的context实现类，可以识别Groovy（也能识别基于XML的bean定义）。
+以下示例展示了Groovy配置：
+</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1227,9 +1228,10 @@ The following example shows Groovy configuration:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The most flexible variant is <code>GenericApplicationContext</code> in combination with reader
-delegates&#8201;&#8212;&#8201;for example, with <code>XmlBeanDefinitionReader</code> for XML files, as the following
-example shows:</p>
+<p>
+	最灵活的变体是<code>GenericApplicationContext</code>与读取器结合使用。
+	例如，与用于XML的<code>XmlBeanDefinitionReader</code>结合使用，如下所示：
+</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1248,8 +1250,9 @@ context.refresh()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also use the <code>GroovyBeanDefinitionReader</code> for Groovy files, as the following
-example shows:</p>
+<p>
+	你也可以使用处理Groovy文件的<code>GroovyBeanDefinitionReader</code>，如下所示：
+</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
