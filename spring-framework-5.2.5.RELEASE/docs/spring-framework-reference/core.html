@@ -1271,17 +1271,18 @@ context.refresh()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can mix and match such reader delegates on the same <code>ApplicationContext</code>,
-reading bean definitions from diverse configuration sources.</p>
+<p>
+	你可以在同一个<code>ApplicationContext</code>上混合并匹配此类读取器委托，以便从不同的配置源中读取bean的定义。
+</p>
 </div>
 <div class="paragraph">
-<p>You can then use <code>getBean</code> to retrieve instances of your beans. The <code>ApplicationContext</code>
-interface has a few other methods for retrieving beans, but, ideally, your application
-code should never use them. Indeed, your application code should have no calls to the
-<code>getBean()</code> method at all and thus have no dependency on Spring APIs at all. For example,
-Spring&#8217;s integration with web frameworks provides dependency injection for various web
-framework components such as controllers and JSF-managed beans, letting you declare
-a dependency on a specific bean through metadata (such as an autowiring annotation).</p>
+<p>
+	然后你可以使用<code>getBean</code>获取Bean的实例。
+	<code>ApplicationContext</code>接口还有一些其他方法用来获取Bean，但理想情况下你应该永远不使用它们，
+	甚至你也不应该调用<code>getBean()</code>方法，这样才能完全不依赖于Spring的API。
+	比如，Spring和Web框架的集成为各种各样的Web框架组件（比如控制器和JSF管理的bean）提供了依赖注入，
+	让你可以通过元数据来声明对指定Bean的依赖（例如自动装配注解）。
+</p>
 </div>
 </div>
 </div>
