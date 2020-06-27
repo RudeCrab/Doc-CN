@@ -167,20 +167,20 @@ $(globalSwitch);
 <ul class="sectlevel1">
 <li><a href="#beans">1. 控制反转（IoC）容器</a>
 <ul class="sectlevel2">
-<li><a href="#beans-introduction">1.1. Introduction to the Spring IoC Container and Beans</a></li>
-<li><a href="#beans-basics">1.2. Container Overview</a>
+<li><a href="#beans-introduction">1.1. 介绍Spring Ioc容器和Beans</a></li>
+<li><a href="#beans-basics">1.2. 容器概述</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-metadata">1.2.1. Configuration Metadata</a></li>
-<li><a href="#beans-factory-instantiation">1.2.2. Instantiating a Container</a>
+<li><a href="#beans-factory-metadata">1.2.1. 配置元数据</a></li>
+<li><a href="#beans-factory-instantiation">1.2.2. 实例化容器</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-xml-import">Composing XML-based Configuration Metadata</a></li>
+<li><a href="#beans-factory-xml-import">编写基于XML的配置元数据</a></li>
 <li><a href="#groovy-bean-definition-dsl">The Groovy Bean Definition DSL</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-client">1.2.3. Using the Container</a></li>
+<li><a href="#beans-factory-client">1.2.3. 使用容器</a></li>
 </ul>
 </li>
-<li><a href="#beans-definition">1.3. Bean Overview</a>
+<li><a href="#beans-definition">1.3. Bean概述</a>
 <ul class="sectlevel3">
 <li><a href="#beans-beanname">1.3.1. Naming Beans</a>
 <ul class="sectlevel4">
@@ -1287,40 +1287,35 @@ context.refresh()</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-definition"><a class="anchor" href="#beans-definition"></a>1.3. Bean Overview</h3>
+<h3 id="beans-definition"><a class="anchor" href="#beans-definition"></a>1.3. Bean概述</h3>
 <div class="paragraph">
-<p>A Spring IoC container manages one or more beans. These beans are created with the
-configuration metadata that you supply to the container (for example, in the form of XML
-<code>&lt;bean/&gt;</code> definitions).</p>
+<p>
+	Spring IoC容器管理一个或多个Bean。这些Bean是通过你提供给容器的配置元数据创建出来的（比如以XML<code>&lt;bean/&gt;</code>定义的形式）。
+</p>
 </div>
 <div class="paragraph">
-<p>Within the container itself, these bean definitions are represented as <code>BeanDefinition</code>
-objects, which contain (among other information) the following metadata:</p>
+<p>
+	在容器自身内，这些Bean定义表示为<code>BeanDefinition</code>对象，它包含了以下元数据
+</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A package-qualified class name: typically, the actual implementation class of the
-bean being defined.</p>
+<p>包限定的类名称，通常定义了Bean的实际实现类。</p>
 </li>
 <li>
-<p>Bean behavioral configuration elements, which state how the bean should behave in the
-container (scope, lifecycle callbacks, and so forth).</p>
+<p>Bean行为配置元素，用于声明Bean在容器中的行为（作为范围、生命周期回调等等）。</p>
 </li>
 <li>
-<p>References to other beans that are needed for the bean to do its work. These
-references are also called collaborators or dependencies.</p>
+<p>其他Bean工作时所需要的引用，这些引用也被称为协作者或者依赖项。</p>
 </li>
 <li>
-<p>Other configuration settings to set in the newly created object&#8201;&#8212;&#8201;for example, the size
-limit of the pool or the number of connections to use in a bean that manages a
-connection pool.</p>
+<p>要在新创建对象中设置的其他配置，例如，池的大小限制或者管理连接池的Bean使用的连接数。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This metadata translates to a set of properties that make up each bean definition.
-The following table describes these properties:</p>
+<p>此元数据转换为构成各个Bean定义的一组属性。下表对这些属性进行了介绍:</p>
 </div>
 <table id="beans-factory-bean-definition-tbl" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. The bean definition</caption>
